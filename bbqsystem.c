@@ -17,8 +17,7 @@ int main ()
         printw("This is where I'll put some help");
     }
     //obviously need to spawn some windows and add logic
-    else
-    {
+    else{
         printw("we'll echo our choices here\n");
         attron(A_BOLD);
         printw("%c", ch);
