@@ -1,14 +1,19 @@
-# include <ncurses.h>
+#include <ncurses.h>
+#include <stdio.h>
+#include <string.h>
 
-int main ()
+int main (int argc, char *argv[])
 {
-    int ch;                 //declare ch
+  int ch, row, col;         //declare ch
     initscr();              //initialize curses
+    getmaxyx(stdscr,row,col);
     raw();                  //line buffering disabled
     keypad(stdscr, TRUE);   //F1, F2, etc activated
     noecho();
 
-    printw("BBQ System Tweak Tool\n");
+    char intro[]="BBQ System Tweak Tool\n";
+
+    mvprintw(0, (col-strlen(intro))/2, "%s",intro); 
     printw("First, let's check choices.\n");
     ch = getch();   //this is why we call raw(), to not have
                     //have to press "return" after every 
